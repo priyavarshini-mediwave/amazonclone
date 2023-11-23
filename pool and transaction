@@ -40,3 +40,35 @@ async function buyItemController(req, res) {
 Important Notice:                                     |
 Configure pg client as a pool                         |
 ------------------------------------------------------|
+
+npm install moment-timezone
+
+
+const moment = require('moment-timezone'); // Make sure to install the moment-timezone package
+
+async function listController(req, res) {
+  let queryText = `SELECT purchases.*,items.item_name FROM purchases JOIN items ON purchases.item_id = items.item_id WHERE purchases.user_id = $1`;
+  try {
+    // ... (your existing code)
+
+    const listRes = await pgClient.query(queryText, [req.params.user_id]);
+
+    // Convert UTC dates to a specific time zone (e.g., 'Asia/Kolkata')
+    const timeZone = 'Asia/Kolkata'; // Adjust this to your desired time zone
+    const formattedRows = listRes.rows.map(row => {
+      return {
+        ...row,
+        date_of_order: moment.utc(row.date_of_order).tz(timeZone).format(),
+      };
+    });
+
+    res.json({
+      rows: formattedRows,
+      count: listRes.rowCount,
+    });
+  } catch (err) {
+    console.log("Unknown Error:", err);
+    res.status(500).json({ error: "Unknown Error" });
+  }
+}
+

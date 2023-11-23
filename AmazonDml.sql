@@ -52,6 +52,10 @@ alter table rating drop constraint rating_ratingvalue_check;
 --ADD CONSTRAINT course_college_clg_id_fkey
 --FOREIGN KEY (clg_id) REFERENCES colleges(college_id) ON DELETE CASCADE;
 update items set item_count = item_count +1 where item_id =5;
+delete from purchases where purchase_id between 9 and 10;
 
-
+update items set item_count = 9 where item_id =4;
+select * from purchases order by date_of_order desc;
+SELECT purchases.*,items.item_name FROM purchases JOIN items ON purchases.item_id = items.item_id WHERE purchases.user_id = 3
+ORDER BY date_of_order desc;
 
