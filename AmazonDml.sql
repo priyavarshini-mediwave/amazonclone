@@ -51,7 +51,7 @@ alter table rating drop constraint rating_ratingvalue_check;
 --ALTER TABLE course_college
 --ADD CONSTRAINT course_college_clg_id_fkey
 --FOREIGN KEY (clg_id) REFERENCES colleges(college_id) ON DELETE CASCADE;
-
+update items set item_count = item_count +1 where item_id =5;
 
 
 
