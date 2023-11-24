@@ -20,3 +20,13 @@ alter table items add column item_price DECIMAL(10, 2) NOT null;
 drop table my_orders;
 
 alter table cart add column item_price DECIMAL(10, 2) NOT null;
+
+
+--begin transaction;
+--
+--update cart set item_name ='abc' where item_name ='Pen' or 1=1
+--
+--
+--
+--rollback
+--select * from cart c 
