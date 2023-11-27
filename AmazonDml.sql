@@ -59,3 +59,14 @@ select * from purchases order by date_of_order desc;
 SELECT purchases.*,items.item_name FROM purchases JOIN items ON purchases.item_id = items.item_id WHERE purchases.user_id = 3
 ORDER BY date_of_order desc;
 
+update cart set user_id =1;
+update cart set item_id =1 where cart_items_id =1;
+update cart set item_name ='Almonds' where cart_items_id =1;
+update cart set item_name ='Candy' where cart_items_id in (2,3);
+update cart set item_id =2 where cart_items_id in (2,3);
+update purchases set user_id =1 where purchase_id between 1 and 4;
+update purchases set user_id =2 where purchase_id between 11 and 20;
+
+update purchases set item_id =2 where purchase_id between 1 and 4;
+update purchases set item_id =5 where purchase_id between 11 and 14;
+update purchases set item_id =4 where purchase_id between 15 and 20;
