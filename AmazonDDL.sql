@@ -83,7 +83,7 @@ alter table cart add column item_id  integer  references items(item_id) on delet
 alter table purchases  drop column item_id;
 alter table purchases  add column item_id  integer  references items(item_id) on delete cascade;
 
-
+create table favourites(favourite_id serial primary key not null,item_id integer references items(item_id),user_id integer references account_users(user_id));
 
 
 
