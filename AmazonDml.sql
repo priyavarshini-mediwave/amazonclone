@@ -70,3 +70,14 @@ update purchases set user_id =2 where purchase_id between 11 and 20;
 update purchases set item_id =2 where purchase_id between 1 and 4;
 update purchases set item_id =5 where purchase_id between 11 and 14;
 update purchases set item_id =4 where purchase_id between 15 and 20;
+
+update rating set item_id =1 where rating_id in (3,7);
+update rating set item_id =5 where rating_id between 4 and 10;
+update rating set item_id =7 where rating_id between 11 and 20;
+update rating set item_id =9 where rating_id between 40 and 50;
+
+update rating set user_id =1 where rating_id between 1 and 20;
+update rating set user_id =2 where rating_id between 21 and 40;
+update rating set user_id =1 where rating_id between 40 and 50;
+
+update rating set item_id =2 where rating_id =2;
